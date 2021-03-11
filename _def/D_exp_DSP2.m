@@ -1,26 +1,30 @@
 expType='2IFC';
 
+% TIMING
 dOpts=struct();
     dOpts.nInterval=2;
     dOpts.bUseBg=1;
-    dOpts.isi=.250;
-    dOpts.iti=.5;
+    dOpts.isi=0.250;
+    dOpts.iti=0.5;
     dOpts.breakTime=2;
     dOpts.nCountDown=3;
     dOpts.countDownTime=1;
     dOpts.nReset=10;
     dOpts.bHideLastInterval=1;
 
+% INPUT
 keyOpts=struct();
     keyOpts.keyDefName='key_defs_2AFC_DSP_rsp';
     keyOpts.bUseKeycaps=1;
-    keyOpts.pauseLength=.2;
+    keyOpts.pauseLength=0.2;
 
+% PTB
 ptbOpts=struct();
     ptbOpts.blk=0;
     ptbOpts.wht=1;
-    ptbOpts.gry=.4;
+    ptbOpts.gry=0.4;
 
+% CROSSHAIRS
 chOpts=struct();
     chOpts.parts={'o','+','x'};
     chOpts.bgColor=ptbOpts.gry;
@@ -36,12 +40,14 @@ chOpts=struct();
     chOpts.inWidth=0.07;
     chOpts.inColor=ptbOpts.wht;
 
+% TRIAL COUNTER
 counterOpts=struct();
     counterOpts.bgColor=ptbOpts.gry;
     counterOpts.fgColor=ptbOpts.wht;
     counterOpts.relPosPRC='IBR';
     counterOpts.fontSize=30;
 
+% STIM
 stmInfoOpts=struct();
     %stmInfoOpts.font=
     stmInfoOpts.fontSize=20;
