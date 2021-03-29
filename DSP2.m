@@ -50,8 +50,38 @@ methods(Static=true)
                ];
         DSP2.view_bins_fun(alias,type,groups);
     end
+    function montage()
+        P=DSP2.load_ptchs();
+        P.apply_block_all('DSP2');
+        P.montage_bins([],[],1,'figures/montage/');
+    end
+    function montage_nodsp()
+        P=DSP2.load_ptchs();
+        P.apply_block_all('DSP2nodsp');
+        P.montage_bins([],[],1,'figures/montage_nodsp/');
+    end
 
 %%--------------------------------------------
+%% EXP
+    function b=gen_blk()
+        b=Blk('DSP2');
+    end
+    function b=gen_blk_nodsp()
+        b=Blk('DSP2nodsp');
+    end
+    function bb=gen_E()
+        bb=EobjBlk('DSP2');
+    end
+    function hashes=get_hashes()
+        hashes=imapCommon.alias2hashes('DSP2_lim_dvn');
+    end
+    function P=load_ptchs()
+        P=ptchs.load('DSP2_lim_dvn');
+    end
+    function P=load_ptchs_blk(mode,lvlInd,blocks)
+        P=DSP2.load_ptchs();
+        P.exp_init('DSP2',mode,lvlInd,blocks);
+    end
 %% LIM-NORMAL
     function s=get_joint_DSP_2_3lim()
         alias='DSP_2_3lim';
@@ -174,16 +204,16 @@ methods(Static=true,Access=private)
     end
     function plot_joint(s)
         imagesc(s.P);
-        colorbar
-        colormap hot
+        colorbar;
+        colormap hot;
     end
     function viewBins_format_fun(b,spacing)
         figure(nFn)
 
-        subPlot([1 2],1,1)
+        subPlot([1 2],1,1);
         b.plot_linear();
 
-        subPlot([1 2],1,2)
+        subPlot([1 2],1,2);
         b.plot_log();
 
         set(gcf,'Position',[0 0 1700 1000]);
