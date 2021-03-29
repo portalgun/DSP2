@@ -40,13 +40,23 @@ type.setParams.kernSz=[32 32];
 gen.type=type;
 
 typeL=struct();
-typeL.name='disparity_contrast2';
+typeL.name='disparity_contrast_2';
 typeL.setParams=struct();
 typeL.setParams.dnk=1;
 typeL.setParams.Wk=100;
 typeL.setParams.kernSz=[6 6];
 typeL.minMax=[0 3];
-gen.typeL=type;
+gen.typeL=cell(2,1);
+gen.typeL{1}=typeL;
+
+typeL=struct();
+typeL.name='disparity_contrast';
+typeL.setParams=struct();
+typeL.setParams.dnk=1;
+typeL.setParams.Wk=100;
+typeL.setParams.kernSz=[6 6];
+typeL.minMax=[0 1];
+gen.typeL{2}=typeL;
 
 % Package
 gen.plotOpts=plotOpts;
@@ -68,7 +78,7 @@ smp.bSampleDouble=1;
 smp.bBinOverlap=0;
 smp.bCPoverlap=0;
 smp.overlapPix=0;
-smp.binNums=[15:49];
+smp.binNums=[27:39];
 smp.priority='img';
 % Package
 smp.plotOpts=plotOpts;
@@ -76,7 +86,7 @@ smp.plotOpts=plotOpts;
 %%%%%%%%%%%%%%%
 %% PCH - 5
 pch=struct();
-pch.maxSmpPerImg=5;
+pch.maxSmpPerImg=0;
 pch.PszXY=[32 32];
 pch.PszRCbuff=[50 50];
 pch.mapNames={'pht','xyz'};
