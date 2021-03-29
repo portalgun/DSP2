@@ -1,3 +1,4 @@
+lib='psycho_simple';
 expType='2IFC';
 
 % TIMING
@@ -11,6 +12,7 @@ dOpts=struct();
     dOpts.countDownTime=1;
     dOpts.nReset=10;
     dOpts.bHideLastInterval=1;
+    dOpts.loadRule='reset';
 
 % INPUT
 keyOpts=struct();
