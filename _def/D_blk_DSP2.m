@@ -1,6 +1,6 @@
 dtb='LRSI';
-%hash='4f8a8555861ed541982f1103fd788f29'; % XXX WILL CHANGE
-hash='a8a3837c874442e61e3d901561ea9f01';
+pchAlias='DSP2';
+%hash='93c4a4c0401b69c04e5095578a22e708';
 
 modes=[1:3];
 nBlkPerLvl=5;

@@ -1,4 +1,4 @@
-hashAlias='DSP2_lim_dvn';
+hashAlias='DSP2';
 prjCode='DSP2';
 imgDTB='LRSI';
 natORflt='nat';

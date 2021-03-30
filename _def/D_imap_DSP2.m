@@ -78,7 +78,7 @@ smp.bSampleDouble=1;
 smp.bBinOverlap=0;
 smp.bCPoverlap=0;
 smp.overlapPix=0;
-smp.binNums=[27:39];
+smp.binNums=[27:39]; % XXX
 smp.priority='img';
 % Package
 smp.plotOpts=plotOpts;
@@ -86,6 +86,7 @@ smp.plotOpts=plotOpts;
 %%%%%%%%%%%%%%%
 %% PCH - 5
 pch=struct();
+pch.limBinMin=2500;
 pch.maxSmpPerImg=0;
 pch.PszXY=[32 32];
 pch.PszRCbuff=[50 50];
