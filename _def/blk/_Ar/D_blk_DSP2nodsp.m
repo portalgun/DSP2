@@ -3,8 +3,8 @@ pchAlias='DSP2';
 %hash='93c4a4c0401b69c04e5095578a22e708';
 
 modes=1;
-nBlkPerLvl=5;
-nTrlPerLvl=5000;
+nBlkPerDim=5;
+nTrlPerLvl=100;
 nIntrvlPerTrl=1;
 repeats={'mode'};
 sd=1;

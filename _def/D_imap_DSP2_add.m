@@ -109,7 +109,9 @@ smp.bCPoverlap=0;
 smp.overlapPix=0;
 %smp.binNums=[27:39]; % befoe 5-5-21
 %smp.binNums=[22:41]; % 5-5-21 to 5-12
-smp.binNums=[19 21 23 25 27:41]; % XXX
+%smp.binNums=[19 21 23 25 27:41]; % XXX
+smp.binNums=[19 25 30 35 39]; % XXX DIFFERENT
+smp.preFname='/Volumes/Data/.daveDB/imap/all/d7688d789dbae46fccee9888162cb451/_smp_pre_.mat';
 smp.priority='cumu'; % cumu, img, bins
 % Package
 smp.plotOpts=plotOpts;
@@ -125,8 +127,11 @@ tbl.mapNames={'pht','xyz'};
 tbl.mskNames=[];
 tbl.texNames=[];
 tbl.bStereo=1;
+tbl.appendToAlias='DSP2';
 % Package
 tbl.plotOpts=plotOpts;
+tbl.maxSmpPerImg=100;
+tbl.bRmExtra=true;
 
 %%%%%%%%%%%%%%%
 %% PCH_DMP - 6

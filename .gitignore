@@ -1,10 +1,15 @@
 *.png
 *.eps
 *.svg
+*.mat
+*.mexa64
+diary
 .History.xml
 .History.bak
 .history.m
 .projectile
 _old
 _old/**
-
+_private
+_private/**
+deb2wheatstone.m

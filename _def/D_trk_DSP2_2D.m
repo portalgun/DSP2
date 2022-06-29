@@ -1,7 +1,7 @@
 hashAlias='DSP2';
 prjCode='DSP2';
 imgDTB='LRSI';
-natORflt='nat';
+natORflt='flt'; %NOTE
 imgDim='2D';
 method='2IFC';
 prjInd=[1 1];

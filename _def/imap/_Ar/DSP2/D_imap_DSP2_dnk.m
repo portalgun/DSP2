@@ -3,13 +3,28 @@
 base.database='LRSI';
 %base.imgNums=1:98;
 %base.LorRorB='B';
-base.mods=2:3;
+base.mods=1:6;
 
 %%%%%%%%%%%%%%%
 %Plot opts
 plotOpts=struct();
 plotOpts.bProg=1;
 plotOpts.bSaveProg=1;
+
+%%%%%%%%%%%%%%%
+%% VET - 1
+vet=struct();
+% DVN
+dvn.PszXY=[129 129];
+dvn.bVetAgainst=[1 1];
+dvn.minCntrSep=[12 12];
+vet.dvn=dvn;
+
+% XYZnan
+xyzNan.PszXY=[33 33];
+xyzNan.bVetAgainst=[1 1];
+xyzNan.minCntrSep=[3 3];
+vet.xyzNan=xyzNan;
 
 %%%%%%%%%%%%%%%
 %% GEN - 2
@@ -21,8 +36,27 @@ type.setParams=struct();
 type.setParams.dnk=4;
 type.setParams.Wk=100;
 type.setParams.kernSz=[128 128];
-% Package
 gen.type=type;
+
+typeL=struct();
+typeL.name='disparity_contrast_2';
+typeL.setParams=struct();
+typeL.setParams.dnk=1;
+typeL.setParams.Wk=100;
+typeL.setParams.kernSz=[24 24];
+typeL.minMax=[0 3];
+gen.typeL=cell(2,1);
+gen.typeL{1}=typeL;
+
+typeL=struct();
+typeL.name='disparity_contrast';
+typeL.setParams=struct();
+typeL.setParams.dnk=1;
+typeL.setParams.Wk=100;
+typeL.setParams.kernSz=[12 12];
+typeL.minMax=[0 1];
+gen.typeL{2}=typeL;
+
 gen.plotOpts=plotOpts;
 
 %%%%%%%%%%%%%%%
@@ -41,7 +75,7 @@ smp.rndSd=1;
 smp.bSampleDouble=1;
 smp.bBinOverlap=0;
 smp.bCPoverlap=0;
-smp.overlapPix=5;
+smp.overlapPix=20;
 smp.binNums=[15:50];
 smp.priority='img';
 % Package

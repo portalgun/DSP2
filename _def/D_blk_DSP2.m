@@ -1,13 +1,14 @@
 dtb='LRSI';
 pchAlias='DSP2';
-%hash='93c4a4c0401b69c04e5095578a22e708';
+pchExtraAlias='DSP2_add';
 
 modes=[1:3];
-nBlkPerLvl=5;
-nTrlPerLvl=900;
+nBlkPerDim=5; % XXX change to nBlk
+nTrlPerLvl=100;
 nIntrvlPerTrl=2;
 repeats={'mode'};
-mirror={'disparity'};
+mirror={};
+pmirror={'disparity'};
 sd=1;
 
 % INDEPENDENT VARIABLES
@@ -22,25 +23,25 @@ std=[ ...
         -7.5000; ...
         -5.6250; ...
         -3.7500; ...
-];
+]./60;
+
 
 cmp=[ ...
-        % -13.1250  -12.6562  -12.1875  -11.7188  -11.2500  -10.7812  -10.3125  -9.8438   -9.3750; ...
-        % -11.2500  -10.7812  -10.3125  -9.8438   -9.3750   -8.9062   -8.4375   -7.9688   -7.5000; ...
-        % -8.9062   -8.5547   -8.2031   -7.8516   -7.5000   -7.1484   -6.7969   -6.4453   -6.0938; ...
-        % -7.0312   -6.6797   -6.3281   -5.9766   -5.6250   -5.2734   -4.9219   -4.5703   -4.2188; ...
-        % -4.6875   -4.4531   -4.2188   -3.9844   -3.7500   -3.5156   -3.2812   -3.0469   -2.8125; ...
-         -13.1250    -12.1875    -11.2500    -10.3125    -9.3750; ...
-         -11.2500    -10.3125    -9.3750     -8.4375     -7.5000; ...
-         -8.9062     -8.2031     -7.5000     -6.7969     -6.0938; ...
-         -7.0312     -6.3281     -5.6250     -4.9219     -4.2188; ...
-         -4.6875     -4.2188     -3.7500     -3.2812     -2.8125; ...
-]; % XXX MIGHT CHANGE
+...
+         -14.5314  -12.8907  -11.2500   -9.6093   -7.9686;  % 1.6407 NEW SAME?
+        -12.1876  -10.7813   -9.3750   -7.9687   -6.5624;  % 1.4063 *NEW
+         -9.8438   -8.6719   -7.5000   -6.3281   -5.1562;  % 1.1719 *NEW
+        -7.9688   -6.7969   -5.6250   -4.4531   -3.2812;   % 1.1719 *NEW
+        -6.0938   -4.9219   -3.7500   -2.5781   -1.4062;   % 1.1719 Gd
+...
+]./60;
 
 
-disparity=num2cell(permute([std cmp],[3,1,2]));
-%speed=[];
-bins=num2cell([5,7,9,11,13]); % XXX probably will change
+% 5/25
+bins=[1,4,8,13,17];
+%bins=[1,4,8,13,17];
+%bins=1;  %XXX
+bins=num2cell(bins);
 
 % DISPARITY BETWEEN TARGET AND FOCUS
 trgtDispOrWin='disp'; % relative to dispaly coordinates
@@ -49,8 +50,8 @@ focDispOrWin='disp'; % relative to dispaly coordinates
 focPosXYZm=[0 0 0];
 
 % STIM LOCATION
-stmPosXYZm=[0 0 0];
-stmXYdeg=[1 1];
+stmPosXYZm=[0 0 1]; % are winInfo
+stmXYdeg=[1 1]; % maps to winWHDegRaw
 
 % VIEW WINDOW
 wdwType         = 'COS';
@@ -65,3 +66,15 @@ dcFix=0.4;
 dnkFix=1;
 
 duration=0.250;
+bDSP=1;
+
+%speed=[];
+disparity=num2cell(permute([std cmp],[3,1,2]));
+
+primaryXYZ='d';
+bXYZSource=true;
+
+primaryPht='s';
+bPhtSource=true;
+
+WszRCPixOffset=-2.14086; % XXX NOTE WHpix could be wrong

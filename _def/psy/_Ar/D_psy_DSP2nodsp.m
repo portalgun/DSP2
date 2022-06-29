@@ -1,15 +1,15 @@
-lib='psycho_simple';
-expType='2IFC';
+lib='Psycho';
+expType='viewer';
 
 % TIMING
 dOpts=struct();
-    dOpts.nInterval=2;
+    dOpts.nInterval=1; % N
     dOpts.bUseBg=1;
-    dOpts.isi=0.250;
-    dOpts.iti=0.5;
-    dOpts.breakTime=2;
-    dOpts.nCountDown=3;
-    dOpts.countDownTime=1;
+    dOpts.isi=0;
+    dOpts.iti=0; % N
+    dOpts.breakTime=0; % N
+    dOpts.nCountDown=0;
+    dOpts.countDownTime=0;
     dOpts.nReset=10;
     dOpts.bHideLastInterval=1;
     dOpts.loadRule='reset';
@@ -62,3 +62,29 @@ stmInfoOpts=struct();
     stmInfoOpts.borderFill=0;
     stmInfoOpts.padXY=[10,0];
     stmInfoOpts.relPosPRC='OML';
+
+stmInfo2Opts=struct();
+    %stmInfoOpts.font=
+    stmInfo2Opts.fontSize=20;
+    stmInfo2Opts.fgColor=1;
+    stmInfo2Opts.bgColor=0;
+    stmInfo2Opts.lineSpacing=5;
+    stmInfo2Opts.borderColor=ptbOpts.wht;
+    stmInfo2Opts.borderWidth=2;
+    stmInfo2Opts.borderPad=10;
+    stmInfo2Opts.borderFill=0;
+    stmInfo2Opts.padXY=[10,0];
+    stmInfo2Opts.relPosPRC='OMR';
+
+
+hlpInfoOpts=struct();
+    hlpInfoOpts.fontSize=15;
+    hlpInfoOpts.fgColor=1;
+    hlpInfoOpts.bgColor=0;
+    hlpInfoOpts.lineSpacing=0;
+    hlpInfoOpts.borderColor=ptbOpts.wht;
+    hlpInfoOpts.borderWidth=2;
+    hlpInfoOpts.borderPad=10;
+    hlpInfoOpts.borderFill=0;
+    hlpInfoOpts.padXY=[10,0];
+    hlpInfoOpts.relPosPRC='OML';
